@@ -100,7 +100,7 @@ function generate-pki-config {
   gen-kube-bearertoken
   gen-kube-basicauth
   create-certs "${MASTER_IP}"
-  create-etcd-apiserver-certs "etcd-${MASTER_NAME}" "${MASTER_NAME}"
+  #create-etcd-apiserver-certs "etcd-${MASTER_NAME}" "${MASTER_NAME}"
   KUBELET_TOKEN=$(dd if=/dev/urandom bs=128 count=1 2>/dev/null | base64 | tr -d "=+/" | dd bs=32 count=1 2>/dev/null)
   KUBE_PROXY_TOKEN=$(dd if=/dev/urandom bs=128 count=1 2>/dev/null | base64 | tr -d "=+/" | dd bs=32 count=1 2>/dev/null)
   NODE_PROBLEM_DETECTOR_TOKEN=$(dd if=/dev/urandom bs=128 count=1 2>/dev/null | base64 | tr -d "=+/" | dd bs=32 count=1 2>/dev/null)
@@ -474,7 +474,7 @@ function wait-for-hollow-nodes-to-run-or-timeout {
 }
 
 ############################### Main Function ########################################
-detect-project &> /dev/null
+#detect-project &> /dev/null
 find-release-tars
 
 # We need master IP to generate PKI and kubeconfig for cluster.

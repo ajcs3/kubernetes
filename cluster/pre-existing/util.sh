@@ -42,8 +42,8 @@ function detect-project() {
 
 function create-certs {
   rm /tmp/kubeconfig
-
-  execute-cmd-on-pre-existing-master-with-retries "sudo cat /etc/kubernetes/admin.conf" > /tmp/kubeconfig
+  cat <your shoot cluster kubeconfig path> > /tmp/kubeconfig
+  #execute-cmd-on-pre-existing-master-with-retries "sudo cat /etc/kubernetes/admin.conf" > /tmp/kubeconfig
   CA_CERT_BASE64=$(cat /tmp/kubeconfig | grep certificate-authority | awk '{print $2}' | head -n 1)
   KUBELET_CERT_BASE64=$(cat /tmp/kubeconfig | grep client-certificate-data | awk '{print $2}' | head -n 1)
   KUBELET_KEY_BASE64=$(cat /tmp/kubeconfig | grep client-key-data | awk '{print $2}' | head -n 1)

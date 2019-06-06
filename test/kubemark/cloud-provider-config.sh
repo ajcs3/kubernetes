@@ -14,8 +14,9 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-CLOUD_PROVIDER="${CLOUD_PROVIDER:-gce}"
+CLOUD_PROVIDER="pre-existing" #as we are using existing cluster
 CONTAINER_REGISTRY="${CONTAINER_REGISTRY:-gcr.io}"
-PROJECT="${PROJECT:-}"
-KUBEMARK_IMAGE_REGISTRY="${KUBEMARK_IMAGE_REGISTRY:-}"
+PROJECT="${PROJECT:-scp-engsrvperfdev-gcp}"
+KUBEMARK_IMAGE_REGISTRY="${KUBEMARK_IMAGE_REGISTRY:-gcr.io}"
 KUBEMARK_IMAGE_MAKE_TARGET="${KUBEMARK_IMAGE_MAKE_TARGET:-gcloudpush}"
+MASTER_IP="api.kubemark.core.shoot.perfteam.gcp.sapcloud.io" #Put_Your_API_endpoint
